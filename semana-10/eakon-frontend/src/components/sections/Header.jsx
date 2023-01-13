@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logoEAKON from '../../assets/img/logo-eakon.webp';
 
 const Header = () => {
@@ -5,22 +6,22 @@ const Header = () => {
     <header className="header">
       <nav className="nav">
         <div className="container f-elements f-elements--header">
-          <a>
+          <Link to="/">
             <img src={logoEAKON} alt="Logo de EAKON" className="nav__logo" width="32" height="32" />
-          </a>
+          </Link>
           <div className="modal modal--header">
             <ul className="list list--header">
               <li>
-                <a className="list__link">Productos</a>
+                <Link to="/productos" className="list__link">Productos</Link>
               </li>
               <li>
-                <a className="list__link">Servicios</a>
+                <Link to="/servicios" className="list__link">Servicios</Link>
               </li>
               <li>
-                <a className="list__link">Nosotros</a>
+                <Link to="/nosotros" className="list__link">Nosotros</Link>
               </li>
               <li>
-                <a className="list__link">Contacto</a>
+                <Link to="/contacto" className="list__link">Contacto</Link>
               </li>
             </ul>
           </div>
