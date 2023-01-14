@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logoEAKON from '../../assets/img/logo-eakon.webp';
 
 const Header = () => {
@@ -37,40 +37,40 @@ const Header = () => {
               onClick={e => e.stopPropagation()}
             >
               <li>
-                <Link
+                <NavLink
                   to="/productos"
-                  className="list__link"
+                  className={({ isActive }) => isActive ? "list__link list__link--active" : "list__link"}
                   onClick={hideMenu}
                 >
                   Productos
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/servicios"
-                  className="list__link"
+                  className={({ isActive }) => isActive ? "list__link list__link--active" : "list__link"}
                   onClick={hideMenu}
                 >
                   Servicios
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/nosotros"
-                  className="list__link"
+                  className={({ isActive }) => isActive ? "list__link list__link--active" : "list__link"}
                   onClick={hideMenu}
                 >
                   Nosotros
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link
+                <NavLink
                   to="/contacto"
-                  className="list__link"
+                  className={({ isActive }) => isActive ? "list__link list__link--active" : "list__link"}
                   onClick={hideMenu}
                 >
                   Contacto
-                </Link>
+                </NavLink>
               </li>
               <li
                 className="icon icon--close"
