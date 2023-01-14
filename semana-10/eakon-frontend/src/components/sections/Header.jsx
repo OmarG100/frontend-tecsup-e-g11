@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { BsList, BsXCircle } from "react-icons/bs";
 import { Link, NavLink } from 'react-router-dom';
 import logoEAKON from '../../assets/img/logo-eakon.webp';
 
@@ -76,21 +77,21 @@ const Header = () => {
                 className="icon icon--close"
                 onClick={hideMenu}
               >
-                ❌
+                <BsXCircle />
               </li>
             </ul>
           </div>
           <div className="f-elements f-elements--center">
-            <select>
+            {/* <select>
               <option value="value1">🌚</option>
               <option value="value2">🌞</option>
               <option value="value3">💻</option>
-            </select>
+            </select> */}
             <button
               className="icon"
               onClick={showMenu}
             >
-              🍔
+              <BsList />
             </button>
           </div>
         </div>
