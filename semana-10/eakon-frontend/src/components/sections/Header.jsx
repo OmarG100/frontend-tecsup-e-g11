@@ -32,20 +32,50 @@ const Header = () => {
             ref={modal}
             onClick={hideMenu}
           >
-            <ul className="list list--header">
+            <ul
+              className="list list--header"
+              onClick={e => e.stopPropagation()}
+            >
               <li>
-                <Link to="/productos" className="list__link">Productos</Link>
+                <Link
+                  to="/productos"
+                  className="list__link"
+                  onClick={hideMenu}
+                >
+                  Productos
+                </Link>
               </li>
               <li>
-                <Link to="/servicios" className="list__link">Servicios</Link>
+                <Link
+                  to="/servicios"
+                  className="list__link"
+                  onClick={hideMenu}
+                >
+                  Servicios
+                </Link>
               </li>
               <li>
-                <Link to="/nosotros" className="list__link">Nosotros</Link>
+                <Link
+                  to="/nosotros"
+                  className="list__link"
+                  onClick={hideMenu}
+                >
+                  Nosotros
+                </Link>
               </li>
               <li>
-                <Link to="/contacto" className="list__link">Contacto</Link>
+                <Link
+                  to="/contacto"
+                  className="list__link"
+                  onClick={hideMenu}
+                >
+                  Contacto
+                </Link>
               </li>
-              <li className="icon icon--close">
+              <li
+                className="icon icon--close"
+                onClick={hideMenu}
+              >
                 ❌
               </li>
             </ul>
