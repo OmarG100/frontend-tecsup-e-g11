@@ -88,7 +88,7 @@ const Header = () => {
               <option value="value3">💻</option>
             </select> */}
             <button
-              className="icon"
+              className="icon icon--menu"
               onClick={showMenu}
             >
               <BsList />
