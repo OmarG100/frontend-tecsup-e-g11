@@ -9,12 +9,12 @@ const Header = () => {
   const modal = useRef();
 
   const showMenu = () => {
-    header.current.classList.add('right-50');
+    header.current.classList.add('header--menu');
     modal.current.classList.add('modal--show');
   };
 
   const hideMenu = () => {
-    header.current.classList.remove('right-50');
+    header.current.classList.remove('header--menu');
     modal.current.classList.remove('modal--show');
   };
 
@@ -34,7 +34,7 @@ const Header = () => {
             onClick={hideMenu}
           >
             <ul
-              className="list list--header"
+              className="list list--header f-elements f-elements--responsive f-elements--center gap-md"
               onClick={e => e.stopPropagation()}
             >
               <li>
