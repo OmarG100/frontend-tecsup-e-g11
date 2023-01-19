@@ -1,12 +1,19 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { BsList, BsXCircle } from "react-icons/bs";
 import { Link, NavLink } from 'react-router-dom';
 import logoEAKON from '../../assets/img/logo-eakon.webp';
 
 const Header = () => {
-
   const header = useRef();
   const modal = useRef();
+
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? '');
+
+  const selectTheme = (e) => {
+    document.documentElement.className = e.target.value;
+    localStorage.setItem('theme', e.target.value);
+    setTheme(e.target.value);
+  };
 
   const showMenu = () => {
     header.current.classList.add('header--menu');
@@ -82,7 +89,11 @@ const Header = () => {
             </ul>
           </div>
           <div className="f-elements f-elements--center">
-            <select className="select select--theme">
+            <select
+              className="select select--theme"
+              onChange={selectTheme}
+              value={theme}
+            >
               <option value="system">💻</option>
               <option value="dark">🌚</option>
               <option value="light">🌞</option>
