@@ -1,4 +1,4 @@
-const HomeHero = () => {
+const HomeHero = ({ heroProducts }) => {
   return (<h1>HomeHero</h1>);
 };
 
