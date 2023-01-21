@@ -21,9 +21,10 @@ const HomeHero = ({ heroProducts }) => {
             key={element.id}
             tag='section'
             zoom={true}
-            className='hero'
+            className='section'
             style={{
-              // backgroundImage: `url(${imagen.data[0].attributes.url})`
+              // backgroundImage: `linear-gradient(to right, var(--light-primary-shadow-color), var(--light-secondary-shadow-color)), url(${imagen.data[0].attributes.url})`
+              backgroundImage: `url(${imagen.data[0].attributes.url})`
             }}
           >
             <div className="container">
