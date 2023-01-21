@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import HomeBestSellers from "../components/home/HomeBestSellers";
 import HomeHero from "../components/home/HomeHero";
 import useHome from "../hooks/useHome";
 import { fetchReadHeroProducts } from "../redux/thunks/homeThunk";
@@ -13,7 +14,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <HomeHero heroProducts={heroProducts} />
+    <>
+      <HomeHero heroProducts={heroProducts} />
+      <HomeBestSellers />
+    </>
   );
 };
 
