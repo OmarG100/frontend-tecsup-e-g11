@@ -5,9 +5,15 @@ import logoEAKON from '../../assets/img/logo-eakon.webp';
 
 const Header = () => {
   const header = useRef();
+  const nav = useRef();
   const modal = useRef();
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') ?? '');
+
+  const documentScroll = () => {
+    header.current?.classList.toggle('header--scroll', window.scrollY > 0);
+    nav.current?.classList.toggle('nav--scroll', window.scrollY > 0);
+  };
 
   const selectTheme = (e) => {
     document.documentElement.className = e.target.value;
@@ -25,12 +31,17 @@ const Header = () => {
     modal.current.classList.remove('modal--show');
   };
 
+  document.addEventListener('scroll', documentScroll);
+
   return (
     <header
       className="header"
       ref={header}
     >
-      <nav className="nav">
+      <nav
+        className="nav"
+        ref={nav}
+      >
         <div className="container f-elements f-elements--header">
           <Link to="/">
             <img src={logoEAKON} alt="Logo de EAKON" className="nav__logo" width="32" height="32" />
