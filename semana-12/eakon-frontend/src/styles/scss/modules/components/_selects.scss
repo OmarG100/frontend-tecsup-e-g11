@@ -1,10 +1,10 @@
 .select {
-  background-color: var(--primary-theme-color);
+  background-color: var(--secondary-theme-color);
 
   &--theme {
     appearance: none;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     width: 24px;
     height: 24px;
   }
