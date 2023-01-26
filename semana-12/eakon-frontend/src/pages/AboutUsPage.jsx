@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import AboutUsHero from "../components/about-us/AboutUsHero";
 import LoadersModal from "../components/common/loaders/LoadersModal";
 import useAboutUs from "../hooks/useAboutUs";
 import { fetchReadAboutUsData } from "../redux/thunks/aboutUsThunk";
-
 
 const AboutUsPage = () => {
   const dispatch = useDispatch();
@@ -17,9 +17,7 @@ const AboutUsPage = () => {
   return (
     <>
       {loading && <LoadersModal />}
-      <h1>Nosotros</h1>
-      <h2>{aboutUsData.attributes?.nombre_empresa}</h2>
-      <p>{aboutUsData.attributes?.quien}</p>
+      <AboutUsHero aboutUsData={aboutUsData} />
     </>
   );
 };
