@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import LoadersModal from "../components/common/loaders/LoadersModal";
 import useAboutUs from "../hooks/useAboutUs";
 import { fetchReadAboutUsData } from "../redux/thunks/aboutUsThunk";
 
@@ -10,12 +11,12 @@ const AboutUsPage = () => {
 
   useEffect(() => {
     document.title = '¡Nosotros! I EAKON';
-    dispatch(fetchReadAboutUsData());
+    Object.keys(aboutUsData).length === 0 && dispatch(fetchReadAboutUsData());
   }, []);
 
   return (
     <>
-      {loading && <h5>Cargando...</h5>}
+      {loading && <LoadersModal />}
       <h1>Nosotros</h1>
       <h2>{aboutUsData.attributes?.nombre_empresa}</h2>
       <p>{aboutUsData.attributes?.quien}</p>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import LoadersModal from "../components/common/loaders/LoadersModal";
 import HomeBestSellers from "../components/home/HomeBestSellers";
 import HomeHero from "../components/home/HomeHero";
 import useHome from "../hooks/useHome";
@@ -7,7 +8,7 @@ import { fetchReadBestSellersProducts, fetchReadHeroProducts } from "../redux/th
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { heroProducts } = useHome();
+  const { loading, heroProducts } = useHome();
 
   useEffect(() => {
     dispatch(fetchReadHeroProducts());
@@ -16,6 +17,7 @@ const HomePage = () => {
 
   return (
     <>
+      {loading && <LoadersModal />}
       <HomeHero heroProducts={heroProducts} />
       <HomeBestSellers />
     </>
