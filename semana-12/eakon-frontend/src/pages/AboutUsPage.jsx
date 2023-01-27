@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import AboutUsData from "../components/about-us/AboutUsData";
 import AboutUsHero from "../components/about-us/AboutUsHero";
 import LoadersModal from "../components/common/loaders/LoadersModal";
 import useAboutUs from "../hooks/useAboutUs";
@@ -18,6 +19,7 @@ const AboutUsPage = () => {
     <>
       {loading && <LoadersModal />}
       <AboutUsHero aboutUsData={aboutUsData} />
+      <AboutUsData aboutUsData={aboutUsData} />
     </>
   );
 };
