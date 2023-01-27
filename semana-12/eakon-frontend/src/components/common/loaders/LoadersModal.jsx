@@ -1,7 +1,7 @@
 const LoadersModal = () => {
   return (
-    <section class="loader loader--modal" id="loader">
-      <div class="loader__spinner loader__spinner--modal"></div>
+    <section className="loader loader--modal" id="loader">
+      <div className="loader__spinner loader__spinner--modal"></div>
     </section>
   );
 };
