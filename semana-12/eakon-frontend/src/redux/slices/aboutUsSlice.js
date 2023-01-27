@@ -7,7 +7,7 @@ const initialState = {
   aboutUsData: {}
 };
 
-export const aboutSlice = createSlice({
+export const aboutUsSlice = createSlice({
   name: 'aboutUs',
   initialState,
   extraReducers: (builder) => {
@@ -27,4 +27,4 @@ export const aboutSlice = createSlice({
   }
 });
 
-export default aboutSlice.reducer;
+export default aboutUsSlice.reducer;
