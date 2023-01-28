@@ -2,7 +2,6 @@ import { useState } from "react";
 import logoEAKON from '../../../assets/img/logo-eakon.webp';
 
 const ContainersImage = ({ src, alt, className = '' }) => {
-
   const [numberOfErrors, setNumberOfErrors] = useState(0);
 
   const handleLoadImg = (e) => {
