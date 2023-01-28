@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import AboutUsData from "../components/about-us/AboutUsData";
 import AboutUsHero from "../components/about-us/AboutUsHero";
 import LoadersModal from "../components/common/loaders/LoadersModal";
+import ContactMeans from "../components/contact/ContactMeans";
 import useAboutUs from "../hooks/useAboutUs";
 import { fetchReadAboutUsData } from "../redux/thunks/aboutUsThunk";
 
@@ -20,6 +21,7 @@ const AboutUsPage = () => {
       {loading && <LoadersModal />}
       <AboutUsHero aboutUsData={aboutUsData} />
       <AboutUsData aboutUsData={aboutUsData} />
+      <ContactMeans />
     </>
   );
 };

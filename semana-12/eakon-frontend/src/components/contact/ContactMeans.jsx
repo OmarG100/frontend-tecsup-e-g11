@@ -1,6 +1,8 @@
 import { BsClock, BsEnvelope, BsGeoAlt, BsWhatsapp } from "react-icons/bs";
+import useContact from "../../hooks/useContact";
 
-const ContactMeans = ({ contactData }) => {
+const ContactMeans = () => {
+  const { contactData } = useContact();
   const { attributes } = contactData;
 
   return (
