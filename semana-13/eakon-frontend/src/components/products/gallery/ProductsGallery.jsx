@@ -18,7 +18,7 @@ const ProductsGallery = ({ products }) => {
               >
                 <BsCartPlus />
               </button> */}
-              <Link to={`/products/${slug}`}>
+              <Link to={`/productos/${slug}`}>
                 <ContainersImage
                   src={imagen.data[0].attributes.formats.thumbnail.url}
                   alt={nombre}
@@ -27,7 +27,7 @@ const ProductsGallery = ({ products }) => {
               </Link>
               <div className="card__body card__body--products">
                 <h3 className="card__subtitle card__subtitle--sm">{marca.data[0]?.attributes.nombre ?? 'EAKON'}</h3>
-                <Link to={`/products/${slug}`} className="card__title card__title--sm">{nombre}</Link>
+                <Link to={`/productos/${slug}`} className="card__title card__title--sm">{nombre}</Link>
                 <h4 className="card__highlighted mt-auto">{peruvianCurrencyFormat(precio)}</h4>
                 <a
                   href={`https://api.whatsapp.com/send?phone=51${contactData.attributes?.componentes[3].numero}&text=Deseo cotizar el producto ${nombre}, marca: ${marca.data[0]?.attributes.nombre ?? 'EAKON'}`}
