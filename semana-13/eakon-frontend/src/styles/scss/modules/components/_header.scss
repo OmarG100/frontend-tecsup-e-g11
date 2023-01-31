@@ -29,6 +29,14 @@
     --translate-header: -50%;
   }
 
+  &--move-left-shopping-cart {
+    --translate-header: -50%;
+
+    @include desktop {
+      left: -400px;
+    }
+  }
+
   &--move-right {
     --translate-header: 50%;
   }
@@ -55,5 +63,10 @@
         }
       }
     }
+  }
+
+  &--shopping-cart {
+    position: static;
+    border-bottom: 0.125rem solid var(--dark-primary-shadow-color);
   }
 }
