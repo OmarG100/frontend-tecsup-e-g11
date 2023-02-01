@@ -11,8 +11,11 @@ const ProductsPage = () => {
 
   useEffect(() => {
     document.title = '¡Productos! I EAKON';
-    dispatch(fetchReadProducts({ productsPage, productsPageSize }));
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchReadProducts({ productsPage, productsPageSize }));
+  }, [productsPage]);
 
   return (
     <ProductsWrapper
