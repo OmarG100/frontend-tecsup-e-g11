@@ -1,9 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { primaryRoutes } from './routes/PrimaryRoutes';
 
 function App() {
   return (
-    <h1>Admin Dashboard</h1>
-  )
+    <RouterProvider router={primaryRoutes} />
+  );
 }
 
 export default App;
