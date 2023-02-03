@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 
 const RegisterPage = () => {
 
-  const { loading, createUser } = useAuth();
+  const { loading, error, createUser } = useAuth();
 
   const [registrationForm, setRegistrationForm] = useState({
     email: '',
@@ -52,6 +52,7 @@ const RegisterPage = () => {
       </form>
       <br />
       {loading && <span>Cargando...</span>}
+      {error && <span>{error.code}</span>}
     </>
   );
 };
