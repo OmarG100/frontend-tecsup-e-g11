@@ -1,23 +1,55 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import { auth } from "../firebase/firebase";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const { setUser } = useContext(AuthContext);
+  const [loginForm, setLoginForm] = useState({
+    email: '',
+    password: ''
+  });
 
-  const handleClickLogin = () => {
-    setUser(true);
-    navigate('/');
+  const { email, password } = loginForm;
+
+  const handleChangeLoginForm = (e) => {
+    setLoginForm({
+      ...loginForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmitReadUser = async (e) => {
+    e.preventDefault();
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    console.log(response);
   };
 
   return (
     <>
       <h1>LoginPage</h1>
-      <button onClick={handleClickLogin}>Logear</button>
+      <form
+        onSubmit={handleSubmitReadUser}
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder="Correo"
+          value={email}
+          onChange={handleChangeLoginForm}
+        />
+        <br />
+        <br />
+        <input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={handleChangeLoginForm}
+        />
+        <br />
+        <br />
+        <input type="submit" value="Iniciar sesión" />
+      </form>
       <br />
-      <br />
-      <Link to="/register">Registrar</Link>
     </>
   );
 };
