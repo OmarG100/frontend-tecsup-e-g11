@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const RegisterPage = () => {
@@ -51,6 +52,7 @@ const RegisterPage = () => {
         <input type="submit" value="Registrar" />
       </form>
       <br />
+      <Link to="/login">Iniciar sesión</Link>
       {loading && <span>Cargando...</span>}
       {error && <span>{error.code}</span>}
     </>

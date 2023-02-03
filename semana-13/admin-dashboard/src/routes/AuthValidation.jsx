@@ -8,7 +8,7 @@ const AuthValidation = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (user === false) {
+    if (user) {
       navigate('/login');
     }
   }, [user]);

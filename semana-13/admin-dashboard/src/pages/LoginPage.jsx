@@ -1,8 +1,11 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../firebase/firebase";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { loading, error, readUser } = useAuth();
+
   const [loginForm, setLoginForm] = useState({
     email: '',
     password: ''
@@ -19,8 +22,7 @@ const LoginPage = () => {
 
   const handleSubmitReadUser = async (e) => {
     e.preventDefault();
-    const response = await signInWithEmailAndPassword(auth, email, password);
-    console.log(response);
+    await readUser(email, password);
   };
 
   return (
@@ -50,6 +52,13 @@ const LoginPage = () => {
         <input type="submit" value="Iniciar sesión" />
       </form>
       <br />
+      <Link to="/register">Crear cuenta</Link>
+      <br />
+      <br />
+      {loading && <span>Cargando...</span>}
+      <br />
+      <br />
+      {error && <span>{error.code}</span>}
     </>
   );
 };

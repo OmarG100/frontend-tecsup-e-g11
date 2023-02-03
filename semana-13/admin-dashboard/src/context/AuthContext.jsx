@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
@@ -17,7 +17,22 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       const response = await createUserWithEmailAndPassword(auth, email, password);
       setUser(response);
+      setError({});
       navigate('/login');
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const readUser = async (email, password) => {
+    try {
+      setLoading(true);
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      setUser(response);
+      setError({});
+      navigate('/');
     } catch (error) {
       setError(error);
     } finally {
@@ -32,7 +47,8 @@ export const AuthProvider = ({ children }) => {
         error,
         user,
         setUser,
-        createUser
+        createUser,
+        readUser
       }}
     >
       {children}
