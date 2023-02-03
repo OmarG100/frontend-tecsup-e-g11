@@ -8,7 +8,7 @@ const AuthValidation = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (user) {
+    if (Object.keys(user).length <= 0) {
       navigate('/login');
     }
   }, [user]);

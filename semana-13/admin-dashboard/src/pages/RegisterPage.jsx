@@ -1,10 +1,12 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const RegisterPage = () => {
 
-  const { loading, error, createUser } = useAuth();
+  const navigate = useNavigate();
+
+  const { loading, error, user, createUser } = useAuth();
 
   const [registrationForm, setRegistrationForm] = useState({
     email: '',
@@ -24,6 +26,13 @@ const RegisterPage = () => {
     e.preventDefault();
     await createUser(email, password);
   };
+
+  useEffect(() => {
+    console.log(user);
+    if (Object.keys(user).length) {
+      navigate('/');
+    }
+  }, [user]);
 
   return (
     <>

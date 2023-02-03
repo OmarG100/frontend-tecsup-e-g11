@@ -10,13 +10,14 @@ export const AuthProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('ad-user')) || {});
 
   const createUser = async (email, password) => {
     try {
       setLoading(true);
       const response = await createUserWithEmailAndPassword(auth, email, password);
       setUser(response);
+      localStorage.setItem('ad-user', JSON.stringify(response));
       setError({});
       navigate('/login');
     } catch (error) {
@@ -31,6 +32,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       const response = await signInWithEmailAndPassword(auth, email, password);
       setUser(response);
+      localStorage.setItem('ad-user', JSON.stringify(response));
       setError({});
       navigate('/');
     } catch (error) {
